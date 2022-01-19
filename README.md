@@ -1,17 +1,5 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
-</p>
 
-<h3 align="center">PCT skener na Raspberry Pi 4</h3>
-
-<div align="center">
-
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-
-</div>
+<h3 align="center">PCT skener na Raspberry Pi 4 - development verzija</h3>
 
 ---
 
@@ -22,92 +10,75 @@
 ## 📝 Vsebina
 
 - [O projektu](#o_projektu)
-- [Pred uporabo](#pred_uporabo)
+- [Pozor](#pozor)
 - [Namestitev](#namestitev)
+- [Zahteve](#zahteve)
 - [Uporaba](#uporaba)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Namestitve](#namestitve)
+- [Nastavitev zamodejnega zagona](#samodejni)
 
 ## 🧐 O projektu <a name = "o_projektu"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Projekt je bil razvit za namen preverjanja PCT pogoja in oseben izkaznice prvotno na fakulteti za strojništvo. Koda vsebuje tudi program za generiranje zasebnih QR kod za hiter prehod in za študente ki se samotestirajo.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🎈 Pozor <a name="pozor"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Koda je ena izmed prvotnih razvojnih verzij zato nekatere datoteke niso uporabljene. 
 
-### Prerequisites
+### Zahteve <a name="Zahteve"></a>
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Na RPI je najprej potrebno namestiti OpenCV, in knjižice za delo s Tesseract za prepoznavanje znakov na osebni izkaznici. Na Rpi tudi omogočimo kamere ter SPI komunikacijo za komunikacijo z LED signalom. 
 
 ```
-Give the example
+#opencv
+
+sudo apt update && sudo apt-get upgrade &&
+
+sudo apt -y install build-essential cmake pkg-config &&
+
+
+sudo apt -y install libjpeg-dev libtiff5-dev libjasper-dev libpng-dev &&
+sudo apt -y install libxvidcore-dev libx264-dev &&
+
+sudo apt -y install libfontconfig1-dev libcairo2-dev &&
+sudo apt -y install libgdk-pixbuf2.0-dev libpango1.0-dev &&
+sudo apt -y install libgtk2.0-dev libgtk-3-dev &&
+
+sudo apt -y install libatlas-base-dev gfortran &&
+
+sudo apt -y install libhdf5-dev libhdf5-serial-dev libhdf5-103 &&
+sudo apt -y install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 &&
+sudo apt -y install python3-dev
+
+#tesseract
+
+sudo apt -y install tesseract-ocr libtesseract-dev libleptonica-dev pkg-config
 ```
 
-And repeat
+### Namestive <a name = "namestitve"></a>
+
+Repozitorj se klonira na poljubno mesto, ustvari virtualno okolje, se ga aktivira in namesti ```pip install -r requirements.txt```. Odvisno od željenega programa zaženemo skripto:
 
 ```
-until finished
+#za osnovni program za preverjanje
+./pct/video-stream.py
+
+#za progrma za generiranje QR kod za organizacije
+./samogenerator/sam-gen.py
+
+#za program za geenriranje kod za testiranje
+./samotest/makeqr.py
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
 
-## 🔧 Running the tests <a name = "tests"></a>
+## 🔧 Nastavitev zamodejnega zagona <a name = "samodejni"></a>
 
-Explain how to run the automated tests for this system.
+Za nastavitev samodejnega zagona se lahko posamezno skripto nastavi v RPI autostart torej vnesemo pot do datoteke v:
 
-### Break down into end to end tests
-
-Explain what these tests test and why
 
 ```
-Give an example
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ```
 
-### And coding style tests
 
-Explain what these tests test and why
 
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
-
-Add notes about how to use the system.
-
-## 🚀 Deployment <a name = "deployment"></a>
-
-Add additional notes about how to deploy this on a live system.
-
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
