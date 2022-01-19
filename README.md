@@ -70,6 +70,8 @@ Repozitorj se klonira na poljubno mesto, ustvari virtualno okolje, se ga aktivir
 ./samotest/makeqr.py
 ```
 
+Za prilagoditev parametrov se popravljata datoteki ```.yaml```.
+
 
 ## 🔧 Nastavitev zamodejnega zagona <a name = "samodejni"></a>
 
