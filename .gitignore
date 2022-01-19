@@ -1,0 +1,17 @@
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pct/video-stream.log
+video-stream.log
+./pct/video-stream.log
+
+samotest/qr-generator.log
+qr-generator.log
+.samotest/qr-generator.log
+__pycache__/
+
+organization.yaml

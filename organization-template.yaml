@@ -1,0 +1,11 @@
+---
+  vrsta_potrditve : banner #banner or full_page or false
+  banner_timer : 18
+  organizacija_test : ZLP1
+  organizacija_staff : ZLP2
+  ocr_algorythm : mrzf #ali mrz
+  cas_zazanavanja : 18 #min 3!
+  osvetlitev : 1 # Svetlost ledic od 0-31
+  vrata : false
+  vrata_timer : 0 #timer za vrata
+
